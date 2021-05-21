@@ -30,17 +30,20 @@ public class Library {
 
         String statement = "";
 
-        for (Book book : books) {
-            if (book.getTitle().equals(bookToBorrow) && !book.isBorrowed()) {
-                statement = "You successfully borrowed " + book.getTitle();
-                book.borrowed();
-            } else if (book.getTitle().equals(bookToBorrow) && book.isBorrowed()) {
-                statement = "Sorry, this book is already borrowed.";
-            } else {
-                statement = "Sorry, this book is not in our catalog.";
+        if (books.size() == 0) {
+            statement = "Sorry, this book is not in our catalog.";
+        } else {
+            for (Book book : books) {
+                if (book.getTitle().equals(bookToBorrow) && !book.isBorrowed()) {
+                    statement = "You successfully borrowed " + book.getTitle();
+                    book.borrowed();
+                } else if (book.getTitle().equals(bookToBorrow) && book.isBorrowed()) {
+                    statement = "Sorry, this book is already borrowed.";
+                } else {
+                    statement = "Sorry, this book is not in our catalog.";
+                }
             }
         }
-
         System.out.println(statement);
     }
 
