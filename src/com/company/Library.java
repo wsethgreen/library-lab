@@ -27,8 +27,16 @@ public class Library {
 
     // Method to determine if book can be borrowed.
     public void borrowBook(String bookToBorrow) {
-
+        // create statement variable which is what will be printed to the console.
         String statement = "";
+
+        /*
+        Create an if statement to determine if the library has any books.
+        If the library does have books, loop through the inventory to determine the following:
+            1. Does the library have the book requested?
+            2. Is the book requested in stock or checked out?
+        This loop will determine the appropriate statement to print out to the customer.
+         */
 
         if (books.size() == 0) {
             statement = "Sorry, this book is not in our catalog.";
